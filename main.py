@@ -1,7 +1,5 @@
-print ("Hello, Python!")
-
-name = input("What is your name?")
-age = input("How old are you?")
-
-print("Hello, " + name)
-print("In 1 year my age will be", int(age) +1)
+age = int(input("Enter your age: "))
+if age >=18:
+    print("You are adult user.")
+else:
+    print("You are not adult user.")
