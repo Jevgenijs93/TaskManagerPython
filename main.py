@@ -33,6 +33,8 @@ while True:
             if 1 <= num <= len(tasks):
                 tasks[num-1]["done"] = True
                 print("Task marked successfully as completed")
+            else:
+                print("Task with that number does not exist")
 
     elif choice == "4":
         print("Exiting...")
