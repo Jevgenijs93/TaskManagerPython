@@ -5,7 +5,8 @@ while True:
     print("1. Show tasks")
     print("2. Add task")
     print("3. Mark task as completed")
-    print("4. Exit")
+    print("4. Delete task")
+    print("5. Exit")
 
     choice = input("Enter your choice: ")
     if choice == "1":
@@ -26,17 +27,39 @@ while True:
         if len(tasks) == 0:
             print("We don't have any tasks to mark")
         else:
+            print("Task list:")
             for index, task in enumerate(tasks, start=1):
                 print(f"{index}. {task['title']}")
-
+        try:
             num = int(input("Enter task number: "))
             if 1 <= num <= len(tasks):
                 tasks[num-1]["done"] = True
                 print("Task marked successfully as completed")
             else:
                 print("Task with that number does not exist")
+        except ValueError:
+            print("Error: Please enter number")
 
     elif choice == "4":
+        if len(tasks) == 0:
+            print("We don't have any tasks to delete")
+        else:
+            print("Task list:")
+            for index, task in enumerate(tasks, start=1):
+                print(f"{index}. {task['title']}")
+
+        try:
+            num = int(input("Enter task number to delete: "))
+            if 1 <= num <= len(tasks):
+                deleted_task = tasks.pop(num-1)
+                print(f"Task '{deleted_task['title']}' deleted")
+            else:
+                print("Task with that number does not exist")
+
+        except ValueError:
+            print("Error: Please enter number")
+
+    elif choice == "5":
         print("Exiting...")
         break
 
