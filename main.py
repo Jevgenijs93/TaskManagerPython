@@ -8,13 +8,12 @@ def load_tasks():
     try:
         with open("tasks.txt", "r", encoding="utf-8") as file:
             for line in file:
-                title, done = line.strip().strip("|")
+                title, done = line.strip().split("|")
                 tasks.append({
                     "title" : title,
                     "done" : done == "True"
                 })
     except FileNotFoundError:
-        print("Error: File not found")
         pass
     return tasks
 
