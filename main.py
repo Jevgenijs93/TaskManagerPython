@@ -1,3 +1,8 @@
+def save_tasks(tasks):
+    with open("tasks.txt", "w", encoding="utf-8") as file:
+         for task in tasks:
+             file.write(f"{task['title']}|{task['done']}\n")
+
 tasks = []
 
 while True:
@@ -21,6 +26,7 @@ while True:
     elif choice == "2":
          title = input("Enter new task: ")
          tasks.append({"title" : title, "done" : False})
+         save_tasks(tasks)
          print("Task added")
 
     elif choice == "3":
@@ -34,6 +40,7 @@ while True:
             num = int(input("Enter task number: "))
             if 1 <= num <= len(tasks):
                 tasks[num-1]["done"] = True
+                save_tasks(tasks)
                 print("Task marked successfully as completed")
             else:
                 print("Task with that number does not exist")
@@ -52,6 +59,7 @@ while True:
             num = int(input("Enter task number to delete: "))
             if 1 <= num <= len(tasks):
                 deleted_task = tasks.pop(num-1)
+                save_tasks(tasks)
                 print(f"Task '{deleted_task['title']}' deleted")
             else:
                 print("Task with that number does not exist")
