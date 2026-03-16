@@ -3,7 +3,22 @@ def save_tasks(tasks):
          for task in tasks:
              file.write(f"{task['title']}|{task['done']}\n")
 
-tasks = []
+def load_tasks():
+    tasks = []
+    try:
+        with open("tasks.txt", "r", encoding="utf-8") as file:
+            for line in file:
+                title, done = line.strip().strip("|")
+                tasks.append({
+                    "title" : title,
+                    "done" : done == "True"
+                })
+    except FileNotFoundError:
+        print("Error: File not found")
+        pass
+    return tasks
+
+tasks = load_tasks()
 
 while True:
     print("\nMenu:")
