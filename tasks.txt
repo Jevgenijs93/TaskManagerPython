@@ -1,3 +1,2 @@
-Buy car 1|False
-Buy car 3|False
 Buy car 4|True
+Buy car 44|True
