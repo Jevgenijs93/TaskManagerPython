@@ -1,3 +1,1 @@
-Buy car 4|True
-Buy car 44|True
-Buy car 3|False
+Learn pytest|False
