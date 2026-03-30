@@ -37,10 +37,11 @@ def test_delete_task_invalid_index():
     tasks = [
         {"title": "Task 1", "done": False},
         {"title": "Task 2", "done": False},
+        {"title": "Task 3", "done": False},
     ]
     deleted = delete_task(tasks, 3)
     assert deleted is None
-    assert len(tasks) == 2
+    assert len(tasks) == 3
 
 
 
